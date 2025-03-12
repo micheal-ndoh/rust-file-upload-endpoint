@@ -33,10 +33,9 @@ async fn upload(mut multipart: Multipart) {
 }
 #[tokio::main]
 async fn main() {
-
     let app = Router::new()
-    .route("/", get(hello))
-    .route("/index", get(index).post(upload));
+        .route("/", get(hello))
+        .route("/index", get(index).post(upload));
 
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000")
         .await
